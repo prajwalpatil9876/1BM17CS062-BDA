@@ -1,0 +1,4 @@
+{"_id":{"$oid":"60680c4c7a8301d52abbfd25"},"Rollno":1.0,"Name":"Jake","Age":17.0,"ContactNo":"+918555731032","Email-Id":"jake@abc.edu"}
+{"_id":{"$oid":"60680c4c7a8301d52abbfd26"},"Rollno":2.0,"Name":"Arjun","Age":18.0,"ContactNo":"+918555731032","Email-Id":"arjun@abc.com"}
+{"_id":{"$oid":"60680c4c7a8301d52abbfd27"},"Rollno":10.0,"Name":"Ram","Age":19.0,"ContactNo":"+918555731032","Email-Id":"ram@qwerty.com"}
+{"_id":{"$oid":"60680c4c7a8301d52abbfd28"},"Rollno":11.0,"Name":"FEM"," Age":19.0,"ContactNo":"+918555731032","Email-Id":"abc@qwerty.com"}

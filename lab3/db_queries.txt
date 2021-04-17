@@ -1,0 +1,60 @@
+>use StudentDB
+switched to db StudentDB
+> db
+StudentDB
+> db.Student.insertMany(
+... [
+... {"Rollno":1,"Name":"Jake", "Age":17, "ContactNo":"+918555731032","Email-Id":"jake@abc.edu"},
+... {"Rollno":2,"Name":"Arjun", "Age":18,"ContactNo":"+918555731032", "Email-Id":"arjun@abc.com"},
+... {"Rollno":10,"Name":"Ram", "Age":19, "ContactNo":"+918555731032", "Email-Id":"ram@abc.com"},
+... {"Rollno":11,"Name":"ABC"," Age":19, "ContactNo":"+918555731032", "Email-Id":"abc@qwerty.com"},
+... ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("60680c4c7a8301d52abbfd25"),
+                ObjectId("60680c4c7a8301d52abbfd26"),
+                ObjectId("60680c4c7a8301d52abbfd27"),
+                ObjectId("60680c4c7a8301d52abbfd28")
+        ]
+}
+
+> db.Student.updateOne(
+... {"Rollno":10},
+... { $set:{"Email-Id":"ram@qwerty.com"}}
+... )
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.Student.find()
+{ "_id" : ObjectId("60680c4c7a8301d52abbfd25"), "Rollno" : 1, "Name" : "Jake", "Age" : 17, "ContactNo" : "+918555731032", "Email-Id" : "jake@abc.edu" }
+{ "_id" : ObjectId("60680c4c7a8301d52abbfd26"), "Rollno" : 2, "Name" : "Arjun", "Age" : 18, "ContactNo" : "+918555731032", "Email-Id" : "arjun@abc.com" }
+{ "_id" : ObjectId("60680c4c7a8301d52abbfd27"), "Rollno" : 10, "Name" : "Ram", "Age" : 19, "ContactNo" : "+918555731032", "Email-Id" : "ram@qwerty.com" }
+{ "_id" : ObjectId("60680c4c7a8301d52abbfd28"), "Rollno" : 11, "Name" : "FEM", " Age" : 19, "ContactNo" : "+918555731032", "Email-Id" : "abc@qwerty.com" }
+
+>exit
+bye
+
+C:\Users\Admin>mongoexport --db StudentDB --collection Student --type=json --out C:\Users\Admin\Desktop\6th\BDA\student.json
+2021-04-03T12:50:20.499+0530    connected to: mongodb://localhost/
+2021-04-03T12:50:20.566+0530    exported 4 records
+
+> use StudentDB
+switched to db StudentDB
+> db.Student.drop()
+true
+> exit
+bye
+
+C:\Users\Admin>mongoimport --db StudentDB --collection Student --type=csv --file C:\Users\Admin\Desktop\6th\BDA\student.csv --headerline
+2021-04-03T13:29:03.234+0530    connected to: mongodb://localhost/
+2021-04-03T13:29:03.418+0530    3 document(s) imported successfully. 0 document(s) failed to import.
+
+> use StudentDB    
+switched to db StudentDB
+> db.Student.find()
+{ "_id" : ObjectId("606820470db498ac6fc87434"), "name" : "Heisenberg", "roll_no" : 1, "e-mail" : "heisenberg@abc.com" }
+{ "_id" : ObjectId("606820470db498ac6fc87435"), "name" : "Tesla", "roll_no" : 2, "e-mail" : "tesla@abc.com" }
+{ "_id" : ObjectId("606820470db498ac6fc87436"), "name" : "Jobs", "roll_no" : 3, "e-mail" : "jobs@abc.com" }
+>exit
+bye
+
